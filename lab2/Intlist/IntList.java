@@ -230,5 +230,26 @@ public class IntList {
         out.format(")");
         return out.toString();
     }
+
+    public int size(){
+        if (rest == null)
+            return 1;
+        return 1 + rest.size();
+    }
+
+    public int get(int i){
+        if (i == 0)
+            return first;
+        return rest.get(i - 1);
+    }
+
+
+
+    public static void main(String[] args) {
+        IntList L = new IntList(5, null); //2nd item
+        L = new IntList(10, L); // 1st item
+        L = new IntList(15, L); //0th item
+        System.out.println(L.size()+","+ L.get(2));
+    }
 }
 
